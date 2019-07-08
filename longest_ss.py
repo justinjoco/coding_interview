@@ -32,6 +32,9 @@ While i and j don't exceed the string length:
         Remove the character in the set whose value is equal to the character in s at point i (a window length away from j)
         Increment i
 
+Time complexity: O(n): Goes through entire list once
+Memory: O(n): Set keeps track of all the letters seen
+
 '''
 
 
@@ -48,8 +51,7 @@ class Solution:
         while (window_begin < len(s) and window_end < len(s)):
             if s[window_end] not in seen:          
                 seen.add(s[window_end])
-                window_end+=1
-                
+                window_end+=1            
                 longest = max(longest, window_end-window_begin)
                 
             else:
